@@ -63,7 +63,7 @@ typedef struct s_textures
 	double		text_y;
 	double		step_y;
 	void		*img_2;
-	char		**textures;
+	char		**textures; // raplace with NO WE EA
 }	t_textures;
 
 typedef struct s_all
@@ -98,6 +98,7 @@ void			drawline(t_all *all, int x);
 
 //clean and exit
 void			exit_failure(char *str);
+void			clean_all(t_all *all);
 
 //raycasting
 void			make_3d(t_all *all);

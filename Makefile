@@ -1,4 +1,4 @@
-SRC_S    =   main.c position.c init.c raycasting.c make_colors.c
+SRC_S    =   main.c position.c init.c raycasting.c make_colors.c clean.c
 
 OBJ_S    =   ${SRC_S:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: dmitriyp <dmitriyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:03:21 by dmitriyp          #+#    #+#             */
-/*   Updated: 2022/03/02 15:05:20 by dmitriypoplavskiy###   ########.fr       */
+/*   Updated: 2022/03/13 14:52:42 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,11 @@ int	main(int argc, char **argv)
 	get_path(path);
 	init_main_struct(all, path);
 	make_3d(all);
-	mlx_hook(all->data->win_ptr, 2, 1L << 2, proc_key_keyboard, all);
-	mlx_hook(all->data->win_ptr, 17, 0L, proc_esc_window, all);
-	mlx_loop(all->data->mlx_ptr);
-	mlx_destroy_image(all->data->mlx_ptr, all->data->img);
+	//mlx_hook(all->data->win_ptr, 2, 1L << 2, proc_key_keyboard, all);
+	//mlx_hook(all->data->win_ptr, 17, 0L, proc_esc_window, all);
+	//mlx_loop(all->data->mlx_ptr);
+	clean_all(all);
+	free(path);
+	while(1);
 	return (0);
 }

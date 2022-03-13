@@ -81,7 +81,6 @@ int	*get_map(void)
 						1,1,1,1,1,1,1,1,1,1};
 	out = malloc(sizeof(int) * 100);
 	out = ft_memcpy_int(out, map, 100);
-	//printf("0 elem is %d",out[10]);
 	return (out);
 }
 
@@ -109,11 +108,11 @@ void	init_data(t_data *data, t_player *player)
 	data->scr_h = 480;
 	data->scr_w = 640;
 	data->bits = 32;
-	data->mlx_ptr = mlx_init(); //add fail check
+	data->mlx_ptr = mlx_init();
 	if (data->mlx_ptr == NULL)
 		exit_failure("mlx init error");
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->scr_w, data->scr_h, \
-		"Cube3D"); // add fail check
+		"Cube3D");
 	if (data->win_ptr == NULL)
 		exit_failure("mlx ptr error");
 	data->img = mlx_new_image(data->mlx_ptr, data->scr_w, data->scr_h);
