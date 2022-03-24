@@ -6,7 +6,7 @@
 /*   By: dmitriyp <dmitriyp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:03:21 by dmitriyp          #+#    #+#             */
-/*   Updated: 2022/03/13 14:52:42 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/24 22:26:39 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,17 @@ void	exit_failure(char *str)
 int	main(int argc, char **argv)
 {
 	t_all	*all;
-	char	**path;
+	t_data	data;
 
-	path = malloc(sizeof(path));
 	all = malloc(sizeof(t_all));
-	if (path == NULL || all == NULL)
-		exit_failure(NULL);
-	get_path(path);
-	init_main_struct(all, path);
+	parsing_start(&data, argc, argv);
+	init_main_struct(all, &data);
 	make_3d(all);
-	//mlx_hook(all->data->win_ptr, 2, 1L << 2, proc_key_keyboard, all);
-	//mlx_hook(all->data->win_ptr, 17, 0L, proc_esc_window, all);
-	//mlx_loop(all->data->mlx_ptr);
+	mlx_hook(all->data->win_ptr, 2, 1L << 2, proc_key_keyboard, all);
+	mlx_hook(all->data->win_ptr, 17, 0L, proc_esc_window, all);
+	mlx_loop(all->data->mlx_ptr);
 	clean_all(all);
-	free(path);
-	while(1);
+	free_after_parsing(&data);
+
 	return (0);
 }

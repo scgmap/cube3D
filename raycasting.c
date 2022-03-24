@@ -1,6 +1,6 @@
 #include "cube3d.h"
 
-void	define_dist_wo_fisheye(t_ray *ray, t_player *player)
+void	define_dist_wo_fisheye(t_ray *ray, t_plr *player)
 {
 	if (abs(ray->strike) == 1)
 	{
@@ -18,7 +18,7 @@ void	define_dist_wo_fisheye(t_ray *ray, t_player *player)
 
 // here we simply look for a movement along the camera ray
 // reognize min dist on which ray goes to between 2 closest x and y values
-void	get_ray_distance(t_ray *ray, t_player *player)
+void	get_ray_distance(t_ray *ray, t_plr *player)
 {
 	if (ray->x_ray > 0)
 		ray->x_dist_ray_real = (ray->x_map + 1 - player->x_pos) * \
@@ -34,7 +34,7 @@ void	get_ray_distance(t_ray *ray, t_player *player)
 		ray->y_dist_ray_step;
 }
 
-void	update_ray_position(t_ray *ray, t_player *player, t_data *data, int x)
+void	update_ray_position(t_ray *ray, t_plr *player, t_screen *data, int x)
 {
 	ray->camera = ((double)((2 * x) / (double)data->scr_w)) - 1.0;
 	ray->x_ray = player->x_dir + player->x_cam * ray->camera;
@@ -56,7 +56,7 @@ void	update_ray_position(t_ray *ray, t_player *player, t_data *data, int x)
 // check closest root to the next "wall"
 // in case rays directly inside corner? - looks like is the same
 // 1 = NORTH, -1 = SOUTH, 2 = EAST, -2 = WEST
-void	find_dist_to_wall(t_ray *ray, t_data *data, t_all *all)
+void	find_dist_to_wall(t_ray *ray, t_screen *data, t_all *all)
 {
 	while (ray->strike == 0)
 	{
@@ -86,8 +86,8 @@ void	find_dist_to_wall(t_ray *ray, t_data *data, t_all *all)
 void	make_3d(t_all *all)
 {
 	t_ray		*ray;
-	t_data		*data;
-	t_player	*player;
+	t_screen	*data;
+	t_plr	*player;
 	int			x;
 
 	ray = all->ray;
@@ -102,5 +102,6 @@ void	make_3d(t_all *all)
 		all->text->text_y = 0;
 		drawline(all, x);
 	}
+	make_black(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
 }
