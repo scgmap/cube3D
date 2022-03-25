@@ -1,20 +1,5 @@
 #include "cube3d.h"
 
-// TEMP FUNC TO MAKE ARRAY COPY
-/*void	*ft_memcpy_int(int *dst, int *src, size_t n)
-{
-	size_t	i;
-
-	if (n == 0)
-		return (dst);
-	if (dst == NULL && src == NULL)
-		return (dst);
-	i = -1;
-	while (++i < n)
-		dst[i] = src[i];
-	return (dst);
-}*/
-
 void print_map(t_all *map) // temps
 {
 	int i;
@@ -70,7 +55,7 @@ void	init_main_struct(t_all *all, t_data *parse_data)
 	all->text = make_textures(all, parse_data);
 }
 
-void *get_tetxt_arr(t_text *text, char *txtr, t_all *all, int i)
+void *get_tetxt_arr(t_text *text, char *txtr, t_all *all, char **text_name)
 {
 	void *out;
 	int	endi;
@@ -82,55 +67,13 @@ void *get_tetxt_arr(t_text *text, char *txtr, t_all *all, int i)
 	endi = 0;
 	bits = text->bits;
 	sizeline = text->size_line;
-	tex_w = text->tex_w;
-	tex_h = text->tex_h;
 
 	out = mlx_xpm_file_to_image(all->data->mlx_ptr, txtr, &tex_w, &tex_h);
 	if(!out)
 		exit_failure("mlx img error");
-	text->textures[i] = mlx_get_data_addr(out, &(bits), &(sizeline), &endi);
-	if (!text->textures[i])
-		exit_failure("mlx data_addr error");
+	*text_name = mlx_get_data_addr(out, &(bits), &(sizeline), &endi);
 	return (out);
 };
-
-
-void	make_texture_string(t_text *text, t_all *all, t_textures *txtr)//, int i)
-{
-
-	//check if you need so many
-	/*endi = 0;
-
-	bits = text->bits;
-	sizeline = text->size_line;
-	tex_w = text->tex_w;
-	tex_h = text->tex_h;
-
-	text->img_no = mlx_xpm_file_to_image(all->data->mlx_ptr, \
-		txtr->no, &text->tex_w, &text->tex_h);
-	text->img_ea = mlx_xpm_file_to_image(all->data->mlx_ptr, \
-		txtr->ea, &tex_w, &tex_h);
-	text->img_so = mlx_xpm_file_to_image(all->data->mlx_ptr, \
-		txtr->so, &text->tex_w, &text->tex_h);
-	text->img_we = mlx_xpm_file_to_image(all->data->mlx_ptr, \
-		txtr->we, &text->tex_w, &text->tex_h);
-	if(!text->img_no || !text->img_ea || !text->img_so || !text->img_we)
-		exit_failure("mlx img error");*/
-	//text->textures[0] = mlx_get_data_addr(text->img_no, &(text->bits), \
-//		&(text->size_line), &endi);
-	//printf("add is %d %d\n", text->tex_w, text->tex_h);
-
-//	text->textures[1] = mlx_get_data_addr(text->img_ea, &(bits), \
-//		&(sizeline), &endi);
-	/*text->textures[2] = mlx_get_data_addr(text->img_so, &(text->bits), \
-		&(text->size_line), &endi);
-	text->textures[3] = mlx_get_data_addr(text->img_we, &(text->bits), \
-		&(text->size_line), &endш);
-	if (!text->textures[0] || !text->textures[1] || !text->textures[2] ||\
-		!text->textures[3])
-		exit_failure("mlx data_addr error");*/
-//printf("add textt is %p\n",text->textures[i]); // leaks;
-}
 
 t_text	*make_textures(t_all *all, t_data *parse_data)
 {
@@ -139,22 +82,14 @@ t_text	*make_textures(t_all *all, t_data *parse_data)
 	text = malloc(sizeof(t_text));
 	if (!text)
 		exit_failure(NULL);
-	text->textures = malloc(sizeof(char **));
-	if (!(text->textures))
-		exit_failure(NULL);
 	text->tex_w = 115;
 	text->tex_h = 230;
 	text->bits = 32;
 	text->size_line = text->tex_w * (text->bits / 8);
-	//make_texture_string(text, all, parse_data->txtr);
-	text->img_no = get_tetxt_arr(text, parse_data->txtr->no, all, 0);
-	text->img_ea = get_tetxt_arr(text, parse_data->txtr->so, all, 1);
-	text->img_we = get_tetxt_arr(text, parse_data->txtr->we, all, 2);
-	text->img_we = get_tetxt_arr(text, parse_data->txtr->ea, all, 3);
-	/*make_texture_string(text, all, parse_data->txtr->no, 0);
-	make_texture_string(text, all, parse_data->txtr->ea, 1);
-	make_texture_string(text, all, parse_data->txtr->so, 2);
-	make_texture_string(text, all, parse_data->txtr->we, 3);*/
+	text->img_no = get_tetxt_arr(text, parse_data->txtr->no, all, &text->t_n);
+	text->img_ea = get_tetxt_arr(text, parse_data->txtr->ea, all, &text->t_e);
+	text->img_so = get_tetxt_arr(text, parse_data->txtr->so, all, &text->t_s);
+	text->img_we = get_tetxt_arr(text, parse_data->txtr->we, all, &text->t_w);
 	return (text);
 }
 

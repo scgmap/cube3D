@@ -62,7 +62,10 @@ typedef struct s_text
 	void		*img_ea;
 	void		*img_so;
 	void		*img_we;
-	char		**textures; // raplace with NO WE EA
+	char		*t_n;
+	char		*t_e;
+	char		*t_s;
+	char		*t_w;
 }	t_text;
 
 typedef struct s_all
@@ -78,7 +81,6 @@ typedef struct s_all
 void			init_main_struct(t_all *all, t_data *parse_data);
 t_text			*make_textures(t_all *all, t_data *parse_data);
 int				*get_map(t_data *parse_data);
-//void			get_path(char **path); // take out
 void			init_data(t_screen *data, t_plr *player, t_data *parse_data);
 
 //movement
@@ -91,7 +93,7 @@ void			turn_left(t_all *all, double rotate);
 //colors
 unsigned int	create_trgb(int t, int r, int g, int b);
 void			make_black(t_screen *data);
-void			make_texture_color(t_all *all, char *dst, int y, int text_num);
+void			make_texture_color(t_all *all, char *dst, int y, char *texture);//int text_num);
 void			get_proper_color(char *dst, t_all *all, int y);
 void			drawline(t_all *all, int x);
 

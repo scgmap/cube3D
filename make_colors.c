@@ -25,14 +25,13 @@ void	make_black(t_screen *data)
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
 }
 
-void	make_texture_color(t_all *all, char *dst, int y, int text_num)
+void	make_texture_color(t_all *all, char *dst, int y, char *texture)// int text_num)
 {
 	double	dist_to_wall_below_one;
 
 	dist_to_wall_below_one = all->ray->dist_to_wall_hit - \
 	(double)((int)(all->ray->dist_to_wall_hit));
-	//printf("y is %d and x is %d \n",y, );
-	*(unsigned int *)dst = *(unsigned int *)(all->text->textures[text_num] + \
+	*(unsigned int *)dst = *(unsigned int *)(texture + \
 		(int)(all->text->step_y * y) * (int)all->text->size_line + \
 		(int)(dist_to_wall_below_one *(double)(all->text->tex_w)) \
 		*(int)(all->text->bits / 8));
@@ -41,17 +40,13 @@ void	make_texture_color(t_all *all, char *dst, int y, int text_num)
 void	get_proper_color(char *dst, t_all *all, int y)
 {
 	if (all->ray->strike == -1)
-		make_texture_color(all, dst, y, 3);
-		//*(unsigned int *)dst = 0xFFFF00;
+		make_texture_color(all, dst, y, all->text->t_n);
 	if (all->ray->strike == 1)
-		make_texture_color(all, dst, y, 2);
-		//*(unsigned int *)dst = 0xFFFF00; // change to proper color
+		make_texture_color(all, dst, y, all->text->t_e);
 	if (all->ray->strike == 2)
-		make_texture_color(all, dst, y, 1);
-		//*(unsigned int *)dst = 0x00FFFF;// change to proper color
+		make_texture_color(all, dst, y, all->text->t_s);
 	if (all->ray->strike == -2)
-		//*(unsigned int *)dst = 0x00FF00;// change to proper color
-		make_texture_color(all, dst, y, 0);
+		make_texture_color(all, dst, y, all->text->t_w);
 }
 
 void	drawline(t_all *all, int x)
