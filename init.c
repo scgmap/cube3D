@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:06 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 19:14:12 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 19:26:31 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	init_parse_data(t_screen *data, t_plr *player, t_data *parse_data)
 void	init_data(t_screen *data, t_plr *player, t_data *parse_data)
 {
 	int	endi;
+	int bits;
+	int sz_l;
 
 	init_parse_data(data, player, parse_data);
 	endi = 0;
@@ -103,8 +105,8 @@ void	init_data(t_screen *data, t_plr *player, t_data *parse_data)
 	if (data->img == NULL)
 		exit_failure("mlx img error");
 	data->size_line = data->scr_w * (data->bits / 8);
-	data->mlx_data_addr = mlx_get_data_addr(data->img, &(data->bits), \
-		&(data->size_line), &endi);
+	data->mlx_data_addr = mlx_get_data_addr(data->img, &(bits), \
+		&(sz_l), &endi);
 	if (data->mlx_data_addr == NULL)
 		exit_failure("mlx data_addr error");
 }
