@@ -1,0 +1,11 @@
+ F 220,  100,122
+        C 250,255,0
+
+NO ./cryptohead1.xpm
+SO ./city2.xpm
+WE ./city.xpm
+EA ./red_long.xpm
+
+11111
+10N01
+11111
