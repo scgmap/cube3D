@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:58:13 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 14:59:32 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 16:59:59 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	find_dist_to_wall(t_ray *ray, t_screen *data, t_all *all)
 				ray->x_map++;
 			else
 				ray->x_map--;
-			if (all->map[ray->y_map * data->map_width + ray->x_map] == 1 )
+			if (all->map[ray->y_map * data->map_width + ray->x_map] == 1)
 				ray->strike = 1 * (int)(ray->x_ray / fabs(ray->x_ray));
 		}
 		else
@@ -89,7 +89,7 @@ void	find_dist_to_wall(t_ray *ray, t_screen *data, t_all *all)
 				ray->y_map++;
 			else
 				ray->y_map--;
-			if (all->map[ray->y_map * data->map_width + ray->x_map] == 1 )
+			if (all->map[ray->y_map * data->map_width + ray->x_map] == 1)
 				ray->strike = 2 * (int)(ray->y_ray / fabs(ray->y_ray));
 		}
 	}

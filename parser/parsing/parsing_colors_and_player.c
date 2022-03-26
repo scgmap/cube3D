@@ -6,7 +6,7 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:22:22 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/23 15:22:25 by feschall         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:18:25 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	init_color(char *line, int *fc, int i, int j)
 }
 
 void	check_color(char *line, t_data *s, int mask)
-{	
+{
 	int	*fc;
 	int	i;
 

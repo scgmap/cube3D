@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cube3d.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/26 17:18:57 by gvolibea          #+#    #+#             */
+/*   Updated: 2022/03/26 17:19:16 by gvolibea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUBE3D_H
 # define CUBE3D_H
 
@@ -28,8 +40,6 @@ typedef struct s_plr
 	double		y_dir;
 	double		x_cam;
 	double		y_cam;
-	double		moveX;
-	double		moveY;
 }	t_plr;
 
 typedef struct s_ray

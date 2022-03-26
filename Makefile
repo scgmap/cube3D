@@ -9,9 +9,9 @@ SRC_P	=	./parser/parsing/parsing_map.c ./parser/parsing/parsing_textures.c \
 
 FLAGS   =   -Wall -Wextra -Werror
 
-NAME	  =	  cube3d
+NAME	  =	  cub3D
 
-${NAME} :  ${OBJ_S} ${SRC_P} cube3d.h
+${NAME} :  ${OBJ_S} ${SRC_P} ./parser/Includes/cub3d.h cube3d.h
 			cd ./minilibx/ && make
 			cd ./parser/ && make
 			gcc $(FLAGS) -L./minilibx/ -L./parser/libft/ -L./parser/ -o $(NAME) $(OBJ_S) -lmlx -lcb -lft -framework OpenGL -framework AppKit
