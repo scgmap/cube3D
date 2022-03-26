@@ -14,7 +14,8 @@ NAME	  =	  cub3D
 ${NAME} :  ${OBJ_S} ${SRC_P} ./parser/Includes/cub3d.h cube3d.h
 			cd ./minilibx/ && make
 			cd ./parser/ && make
-			gcc $(FLAGS) -L./minilibx/ -L./parser/libft/ -L./parser/ -o $(NAME) $(OBJ_S) -lmlx -lcb -lft -framework OpenGL -framework AppKit
+			gcc $(FLAGS) -L./minilibx/ -L./parser/libft/ -L./parser/ -o \
+			$(NAME) $(OBJ_S) -lmlx -lcb -lft -framework OpenGL -framework AppKit
 
 all:	${NAME}
 
