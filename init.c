@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:06 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 21:55:34 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 22:06:46 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	init_data(t_screen *data, t_plr *player, t_data *parse_data)
 	int	bits;
 	int	sz_l;
 
-	(void)parse_data;
 	//init_parse_data(data, player, parse_data);
 	// temp
 	data->map_width = 5;
@@ -108,6 +107,7 @@ void	init_data(t_screen *data, t_plr *player, t_data *parse_data)
 	data->scr_h = 480;
 	data->scr_w = 640;
 	data->bits = 32;
+	free_after_parsing(parse_data);
 	data->mlx_ptr = mlx_init();
 	if (data->mlx_ptr == NULL)
 		exit_failure("mlx init error");

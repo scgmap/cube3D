@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:09 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 21:59:08 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 22:06:58 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ void	init_main_struct(t_all *all, t_data *parse_data)
 	if (data == NULL || player == NULL || ray == NULL)
 		exit_failure(NULL);
 	all->map = get_map(parse_data);
-	init_data(data, player, parse_data);
-	free_after_parsing(parse_data);
 	all->text = make_textures(all, parse_data);
+	init_data(data, player, parse_data);
 	all->ray = ray;
 	all->data = data;
 	all->player = player;
