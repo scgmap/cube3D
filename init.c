@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:06 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 20:19:30 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 21:20:14 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ t_text	*make_textures(t_all *all, t_data *parse_data)
 	text->tex_h = 230;
 	text->bits = 32;
 	text->size_line = text->tex_w * (text->bits / 8);
+	(void)all;  //
+	(void)parse_data; //
 	//text->img_no = get_tetxt_arr(text, parse_data->txtr->no, all, &text->t_n);
 	//text->img_ea = get_tetxt_arr(text, parse_data->txtr->ea, all, &text->t_e);
 	//text->img_so = get_tetxt_arr(text, parse_data->txtr->so, all, &text->t_s);

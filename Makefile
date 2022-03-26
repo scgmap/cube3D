@@ -7,21 +7,24 @@ SRC_P	=	./parser/parsing/parsing_map.c ./parser/parsing/parsing_textures.c \
 	./parser/parsing/parsing_colors_and_player.c \
 	./parser/parsing/parsing_input_file.c
 
+%.o: %.c
+			gcc -Wall -Wextra -Werror -Imlx -c $< -o $@
+
 FLAGS   =   -Wall -Wextra -Werror
 
 NAME	  =	  cub3D
 
 ${NAME} :  ${OBJ_S} ${SRC_P} ./parser/Includes/cub3d.h cube3d.h
-			cd ./minilibx/ && make
+			cd ./mlx/ && make
 			cd ./parser/ && make
-			gcc $(FLAGS) -L./minilibx/ -L./parser/libft/ -L./parser/ -o \
-			$(NAME) $(OBJ_S) -lmlx -lcb -lft -framework OpenGL -framework AppKit
+			gcc $(FLAGS) -L./parser/libft/ -L./parser/ -Lmlx -lmlx -lcb -lft\
+			  $(OBJ_S) -framework OpenGL -framework AppKit -o $(NAME)
 
 all:	${NAME}
 
 clean:
 			rm -f ${OBJ_S}
-			cd ./minilibx/ && make clean
+			cd ./mlx/ && make clean
 			cd ./parser/ && make clean
 
 fclean:		clean

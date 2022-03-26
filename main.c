@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:47:45 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 20:26:57 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:57:00 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,22 @@ void	exit_failure(char *str)
 
 int	main(int argc, char **argv)
 {
-	t_all	*all;
+	t_all	all;
 	t_data	data;
 
-	all = malloc(sizeof(t_all));
+//	all = malloc(sizeof(t_all));
 	printf("___1a___\n");
 	parsing_start(&data, argc, argv);
 	printf("___2a___\n");
-	all->mlx_ptr_main = mlx_init();
+	all.mlx_ptr_main = mlx_init();
 	printf("___3a___\n");
-	init_main_struct(all, &data);
-	make_3d(all);
-	mlx_hook(all->data->win_ptr, 2, 1L << 0, proc_key_keyboard, all);
-	mlx_hook(all->data->win_ptr, 1, 0L, proc_key_keyboard, all);
-	mlx_hook(all->data->win_ptr, 17, 0L, proc_esc_window, all);
-	mlx_loop(all->data->mlx_ptr);
-	clean_all(all);
+	init_main_struct(&all, &data);
+	make_3d(&all);
+	mlx_hook(all.data->win_ptr, 2, 1L << 0, proc_key_keyboard, &all);
+	mlx_hook(all.data->win_ptr, 1, 0L, proc_key_keyboard, &all);
+	mlx_hook(all.data->win_ptr, 17, 0L, proc_esc_window, &all);
+	mlx_loop(all.data->mlx_ptr);
+	clean_all(&all);
 	free_after_parsing(&data);
 	return (0);
 }

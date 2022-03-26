@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 15:02:05 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 19:14:19 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:56:02 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	clean_all(t_all *all)
 	free(all->text);
 	free(all->data->mlx_ptr);
 	free(all->data);
-	free(all);
+	//free(all);
 }

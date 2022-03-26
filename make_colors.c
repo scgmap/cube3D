@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:52:30 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 19:15:12 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 21:20:45 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	make_texture_color(t_all *all, char *dst, int y, char *texture)
 
 void	get_proper_color(char *dst, t_all *all, int y)
 {
+	(void)y;
 	if (all->ray->strike == -1)
 		*(unsigned int *)dst = 0xFFFFF00;
 		//make_texture_color(all, dst, y, all->text->t_n);
