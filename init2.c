@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:09 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 21:38:57 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 21:59:08 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,21 @@ void	init_main_struct(t_all *all, t_data *parse_data)
 	data = malloc(sizeof(t_screen));// +sizeof(mlx_ptr_t));
 	player = malloc(sizeof(t_plr));
 	ray = malloc(sizeof(t_ray));
-	data->mlx_ptr = all->mlx_ptr_main; //temp
 	if (data == NULL || player == NULL || ray == NULL)
 		exit_failure(NULL);
+	all->map = get_map(parse_data);
 	init_data(data, player, parse_data);
+	free_after_parsing(parse_data);
+	all->text = make_textures(all, parse_data);
 	all->ray = ray;
 	all->data = data;
 	all->player = player;
 	//all->map = get_map(parse_data);
-	all->map = get_map(NULL); ////
- 	all->text = make_textures(all, parse_data);
+	 ////
+
 }
 
-int	*get_map(t_data *parse_data)
+/*int	*get_map(t_data *parse_data)
 {
 	(void)parse_data;
 	int out1[15] = {1,1,1,
@@ -52,9 +54,9 @@ int	*get_map(t_data *parse_data)
 		out[i] = out1[i];
 	}
 	return (out);
-}
+}*/
 
-/*int	*get_map(t_data *parse_data)
+int	*get_map(t_data *parse_data)
 {
 	int	*out;
 	int	i;
@@ -69,4 +71,4 @@ int	*get_map(t_data *parse_data)
 			out[i] = 1;
 	}
 	return (out);
-}*/
+}

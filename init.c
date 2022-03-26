@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:06 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 21:38:27 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 21:55:34 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,10 @@ void	init_data(t_screen *data, t_plr *player, t_data *parse_data)
 	int	bits;
 	int	sz_l;
 
-	(void)parse_data; //
+	(void)parse_data;
 	//init_parse_data(data, player, parse_data);
 	// temp
-	data->map_width = 3;
+	data->map_width = 5;
 	player->x_pos = 1.5;
 	player->y_pos = 1.5;
 	define_direction(player, 'N');
@@ -108,9 +108,9 @@ void	init_data(t_screen *data, t_plr *player, t_data *parse_data)
 	data->scr_h = 480;
 	data->scr_w = 640;
 	data->bits = 32;
-	//data->mlx_ptr = mlx_init();
-	//if (data->mlx_ptr == NULL)
-	//	exit_failure("mlx init error");
+	data->mlx_ptr = mlx_init();
+	if (data->mlx_ptr == NULL)
+		exit_failure("mlx init error");
 	printf("___1___\n");
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->scr_w, data->scr_h, \
 		"Cube3D");
