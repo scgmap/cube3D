@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   make_colors.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/26 14:52:30 by gvolibea          #+#    #+#             */
+/*   Updated: 2022/03/26 14:53:52 by gvolibea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cube3d.h"
 
 unsigned int	create_trgb(int t, int r, int g, int b)
@@ -25,16 +37,16 @@ void	make_black(t_screen *data)
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
 }
 
-void	make_texture_color(t_all *all, char *dst, int y, char *texture)// int text_num)
+void	make_texture_color(t_all *all, char *dst, int y, char *texture)
 {
 	double	dist_to_wall_below_one;
 
 	dist_to_wall_below_one = all->ray->dist_to_wall_hit - \
 	(double)((int)(all->ray->dist_to_wall_hit));
 	*(unsigned int *)dst = *(unsigned int *)(texture + \
-		(int)(all->text->step_y * y) * (int)all->text->size_line + \
-		(int)(dist_to_wall_below_one *(double)(all->text->tex_w)) \
-		*(int)(all->text->bits / 8));
+		(int)(all->text->step_y * y) *(int)all->text->size_line + \
+		(int)(dist_to_wall_below_one *(double)(all->text->tex_w)) *\
+		(int)(all->text->bits / 8));
 }
 
 void	get_proper_color(char *dst, t_all *all, int y)

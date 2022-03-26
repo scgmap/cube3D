@@ -12,7 +12,8 @@ INCLUDES			= 	./includes/
 HEADER				= 	$(INCLUDES)cub3d.h
 
 SRCS_DIR			=	./parsing/
-SRCS				=	main.c parsing_input_file.c parsing_textures.c parsing_colors_and_player.c parsing_map.c
+SRCS				=	parsing_input_file.c parsing_textures.c \
+						parsing_colors_and_player.c parsing_map.c
 
 OBJS_DIR			=	./.objs/
 OBJS				=	$(addprefix $(OBJS_DIR), $(notdir $(SRCS:%.c=%.o)))

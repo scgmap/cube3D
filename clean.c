@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   clean.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/26 15:02:05 by gvolibea          #+#    #+#             */
+/*   Updated: 2022/03/26 15:02:32 by gvolibea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cube3d.h"
 
-void clean_all(t_all *all)
+void	clean_all(t_all *all)
 {
 	mlx_destroy_image(all->data->mlx_ptr, all->data->img);
 	free(all->map);
@@ -15,4 +27,4 @@ void clean_all(t_all *all)
 	free(all->data->mlx_ptr);
 	free(all->data);
 	free(all);
-};
+}

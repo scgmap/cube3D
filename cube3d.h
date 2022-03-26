@@ -70,11 +70,11 @@ typedef struct s_text
 
 typedef struct s_all
 {
-		t_ray		*ray;
-		t_screen	*data;
-		t_plr		*player;
-		t_text		*text;
-		int			*map;
+	t_ray		*ray;
+	t_screen	*data;
+	t_plr		*player;
+	t_text		*text;
+	int			*map;
 }	t_all;
 
 //init
@@ -89,11 +89,13 @@ void			move_forward(t_all *all, double move);
 void			move_backward(t_all *all, double move);
 void			turn_right(t_all *all, double rotate);
 void			turn_left(t_all *all, double rotate);
+void			move_left(t_all *all, double move);
+void			move_right(t_all *all, double move);
 
 //colors
 unsigned int	create_trgb(int t, int r, int g, int b);
 void			make_black(t_screen *data);
-void			make_texture_color(t_all *all, char *dst, int y, char *texture);//int text_num);
+void			make_texture_color(t_all *all, char *dst, int y, char *texture);
 void			get_proper_color(char *dst, t_all *all, int y);
 void			drawline(t_all *all, int x);
 

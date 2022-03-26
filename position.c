@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   position.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/26 14:52:42 by gvolibea          #+#    #+#             */
+/*   Updated: 2022/03/26 14:57:25 by gvolibea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cube3d.h"
 
 void	move_forward(t_all *all, double move)
@@ -18,38 +30,40 @@ void	move_backward(t_all *all, double move)
 	}
 }
 
-void	turn_left(t_all *all, double rotate)
+void	move_left(t_all *all, double move)
 {
 	double	old_dir_x;
-	double	old_cam_x;
+	double	old_dir_y;
+	double	rotate;
 
+	rotate = M_PI / 2;
 	old_dir_x = all->player->x_dir;
-	old_cam_x = all->player->x_cam;
+	old_dir_y = all->player->y_dir;
 	all->player->x_dir = all->player->x_dir * cos(-rotate) - \
 	all->player->y_dir * sin (-rotate);
 	all->player->y_dir = old_dir_x * sin(-rotate) + \
 	all->player->y_dir * cos (-rotate);
-	all->player->x_cam = all->player->x_cam * cos(-rotate) - \
-	all->player->y_cam * sin (-rotate);
-	all->player->y_cam = old_cam_x * sin(-rotate) + \
-	all->player->y_cam * cos (-rotate);
+	move_forward(all, move);
+	all->player->x_dir = old_dir_x;
+	all->player->y_dir = old_dir_y;
 }
 
-void	turn_right(t_all *all, double rotate)
+void	move_right(t_all *all, double move)
 {
 	double	old_dir_x;
-	double	old_cam_x;
+	double	old_dir_y;
+	double	rotate;
 
+	rotate = M_PI / 2;
 	old_dir_x = all->player->x_dir;
-	old_cam_x = all->player->x_cam;
+	old_dir_y = all->player->y_dir;
 	all->player->x_dir = all->player->x_dir * cos(rotate) - \
-	all->player->y_dir * sin (rotate);
+		all->player->y_dir * sin (rotate);
 	all->player->y_dir = old_dir_x * sin(rotate) + \
-	all->player->y_dir * cos (rotate);
-	all->player->x_cam = all->player->x_cam * \
-	cos(rotate) - all->player->y_cam * sin (rotate);
-	all->player->y_cam = old_cam_x * sin(rotate) + \
-	all->player->y_cam * cos (rotate);
+		all->player->y_dir * cos (rotate);
+	move_forward(all, move);
+	all->player->x_dir = old_dir_x;
+	all->player->y_dir = old_dir_y;
 }
 
 int	check_position(t_all *all, double move)

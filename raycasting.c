@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/26 14:58:13 by gvolibea          #+#    #+#             */
+/*   Updated: 2022/03/26 14:59:32 by gvolibea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cube3d.h"
 
 void	define_dist_wo_fisheye(t_ray *ray, t_plr *player)
@@ -87,7 +99,7 @@ void	make_3d(t_all *all)
 {
 	t_ray		*ray;
 	t_screen	*data;
-	t_plr	*player;
+	t_plr		*player;
 	int			x;
 
 	ray = all->ray;
