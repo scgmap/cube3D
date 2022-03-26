@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:06 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 21:20:14 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 21:38:27 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,18 @@ void	init_data(t_screen *data, t_plr *player, t_data *parse_data)
 	int	bits;
 	int	sz_l;
 
-	init_parse_data(data, player, parse_data);
+	(void)parse_data; //
+	//init_parse_data(data, player, parse_data);
+	// temp
+	data->map_width = 3;
+	player->x_pos = 1.5;
+	player->y_pos = 1.5;
+	define_direction(player, 'N');
+	data->floor_color = 0xFFFF22F;
+	data->ceiling_color = 0xFF22FFF;
+
+	//ttemp
+
 	endi = 0;
 	data->scr_h = 480;
 	data->scr_w = 640;

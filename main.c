@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:47:45 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 20:57:00 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 21:38:05 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ int	main(int argc, char **argv)
 
 //	all = malloc(sizeof(t_all));
 	printf("___1a___\n");
-	parsing_start(&data, argc, argv);
+	(void)argc; //
+	(void)argv; //
+	//parsing_start(&data, argc, argv);
 	printf("___2a___\n");
 	all.mlx_ptr_main = mlx_init();
 	printf("___3a___\n");
@@ -71,6 +73,6 @@ int	main(int argc, char **argv)
 	mlx_hook(all.data->win_ptr, 17, 0L, proc_esc_window, &all);
 	mlx_loop(all.data->mlx_ptr);
 	clean_all(&all);
-	free_after_parsing(&data);
+//	free_after_parsing(&data);
 	return (0);
 }

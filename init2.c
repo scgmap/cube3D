@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:09 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 20:17:42 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 21:38:57 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,32 @@ void	init_main_struct(t_all *all, t_data *parse_data)
 	all->ray = ray;
 	all->data = data;
 	all->player = player;
-	all->map = get_map(parse_data);
-	all->text = make_textures(all, parse_data);
+	//all->map = get_map(parse_data);
+	all->map = get_map(NULL); ////
+ 	all->text = make_textures(all, parse_data);
 }
 
 int	*get_map(t_data *parse_data)
+{
+	(void)parse_data;
+	int out1[15] = {1,1,1,
+				1,0,1,
+				1,0,1,
+				1,0,1,
+				1,1,1};
+	int *out;
+	int i;
+
+	out = malloc(sizeof(int) * 15);
+	i = -1;
+	while(++i < 15)
+	{
+		out[i] = out1[i];
+	}
+	return (out);
+}
+
+/*int	*get_map(t_data *parse_data)
 {
 	int	*out;
 	int	i;
@@ -48,4 +69,4 @@ int	*get_map(t_data *parse_data)
 			out[i] = 1;
 	}
 	return (out);
-}
+}*/
