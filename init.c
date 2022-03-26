@@ -6,11 +6,12 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:06 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 19:26:31 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:19:30 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
 
 void	*get_tetxt_arr(t_text *text, char *txtr, t_all *all, char **text_name)
 {
@@ -86,25 +87,28 @@ void	init_parse_data(t_screen *data, t_plr *player, t_data *parse_data)
 void	init_data(t_screen *data, t_plr *player, t_data *parse_data)
 {
 	int	endi;
-	int bits;
-	int sz_l;
+	int	bits;
+	int	sz_l;
 
 	init_parse_data(data, player, parse_data);
 	endi = 0;
 	data->scr_h = 480;
 	data->scr_w = 640;
 	data->bits = 32;
-	data->mlx_ptr = mlx_init();
-	if (data->mlx_ptr == NULL)
-		exit_failure("mlx init error");
+	//data->mlx_ptr = mlx_init();
+	//if (data->mlx_ptr == NULL)
+	//	exit_failure("mlx init error");
+	printf("___1___\n");
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->scr_w, data->scr_h, \
 		"Cube3D");
 	if (data->win_ptr == NULL)
 		exit_failure("mlx ptr error");
+	printf("___2___\n");
 	data->img = mlx_new_image(data->mlx_ptr, data->scr_w, data->scr_h);
 	if (data->img == NULL)
 		exit_failure("mlx img error");
 	data->size_line = data->scr_w * (data->bits / 8);
+	printf("___3___\n");
 	data->mlx_data_addr = mlx_get_data_addr(data->img, &(bits), \
 		&(sz_l), &endi);
 	if (data->mlx_data_addr == NULL)

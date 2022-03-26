@@ -6,7 +6,7 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:21:58 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/26 13:21:35 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:22:19 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,15 @@ void	parsing_start(t_data *s, int ac, char *av[])
 
 	ft_bzero(s, sizeof(t_data));
 	fd = get_correctly_maps_fd(ac, av);
+	printf("___p1___");
 	init_file_content(fd, s);
+	printf("___p2___");
 	checking_boundary_symbols(s, '0');
+	printf("___p3___");
 	check_player(s);
+	printf("___p4___");
 	convert_one_dimension_map(s);
+	printf("___p5___");
 }
 
 void	free_after_parsing(t_data *s)

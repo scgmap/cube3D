@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:47:45 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 14:49:00 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:26:57 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,11 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	all = malloc(sizeof(t_all));
+	printf("___1a___\n");
 	parsing_start(&data, argc, argv);
+	printf("___2a___\n");
+	all->mlx_ptr_main = mlx_init();
+	printf("___3a___\n");
 	init_main_struct(all, &data);
 	make_3d(all);
 	mlx_hook(all->data->win_ptr, 2, 1L << 0, proc_key_keyboard, all);

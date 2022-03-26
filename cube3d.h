@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 17:18:57 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 17:19:16 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:15:36 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_all
 	t_plr		*player;
 	t_text		*text;
 	int			*map;
+	void		*mlx_ptr_main;
 }	t_all;
 
 //init

@@ -6,11 +6,12 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:09 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 18:25:12 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:17:42 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+//#include "./minilibx/mlx_int.h"
 
 void	init_main_struct(t_all *all, t_data *parse_data)
 {
@@ -18,9 +19,10 @@ void	init_main_struct(t_all *all, t_data *parse_data)
 	t_plr		*player;
 	t_ray		*ray;
 
-	data = malloc(sizeof(t_screen));
+	data = malloc(sizeof(t_screen));// +sizeof(mlx_ptr_t));
 	player = malloc(sizeof(t_plr));
 	ray = malloc(sizeof(t_ray));
+	data->mlx_ptr = all->mlx_ptr_main; //temp
 	if (data == NULL || player == NULL || ray == NULL)
 		exit_failure(NULL);
 	init_data(data, player, parse_data);
