@@ -6,7 +6,7 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:22:39 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/27 13:42:52 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 18:51:32 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ void	convert_one_dimension_map(t_data *s)
 	while (s->map[++x])
 	{
 		y = -1;
-		while (s->map[x][++y] && y < s->t.map_width)
+		while (s->map[x][++y])
 			s->map_str[++i] = s->map[x][y];
 		while (s->t.map_width > y++)
 			s->map_str[++i] = ' ';
 		free(s->map[x]);
+		s->map[x] = NULL;
 	}
 	if (!s->map[x])
 		s->map_str[++i] = '\0';
-	free(s->map);
+	s->map = NULL;
 }
 
 static bool	check_boundary(char **map, char smbl, int x, int y)
@@ -61,7 +62,7 @@ void	checking_boundary_symbols(t_data *s, const char c)
 	int	x;
 
 	y = -1;
-	while (s->map[++y] && *s->map[y] && y < s->t.lines_cnt)
+	while (s->map && s->map[++y] && *s->map[y] && y < s->t.lines_cnt)
 	{
 		x = 0;
 		while (s->map[y][x] == ' ')
@@ -86,7 +87,11 @@ static int	check_maps_error(const char *line, t_data *s)
 			ft_exit(strerror(errno), 1);
 	}
 	if (!line[0])
+	{
+		if (*s->map)
+			ft_exit("map break!", 1);
 		return (-1);
+	}
 	i = 0;
 	while (ft_strchr(" \t", line[i]))
 		++i;
