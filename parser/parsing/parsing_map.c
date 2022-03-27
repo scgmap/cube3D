@@ -6,7 +6,7 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:22:39 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/27 18:51:32 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 19:15:17 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	convert_one_dimension_map(t_data *s)
 	while (s->map[++x])
 	{
 		y = -1;
-		while (s->map[x][++y])
+		while (s->map[x][++y] && y < s->t.map_width)
 			s->map_str[++i] = s->map[x][y];
 		while (s->t.map_width > y++)
 			s->map_str[++i] = ' ';
