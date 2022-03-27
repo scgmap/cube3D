@@ -6,7 +6,7 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:21:58 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/27 15:22:45 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 13:44:11 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	parsing_start(t_data *s, int ac, char *av[])
 
 void	free_after_parsing(t_data *s)
 {
+	free(s->map_str);
 	free(s->txtr->no);
 	free(s->txtr->so);
 	free(s->txtr->we);
