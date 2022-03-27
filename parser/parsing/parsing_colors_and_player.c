@@ -6,11 +6,11 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:22:22 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/27 12:06:32 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 13:42:46 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../Includes/cub3d.h"
 
 static int	*use_color_for_init(t_data *s, int mask)
 {

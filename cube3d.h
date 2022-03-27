@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/26 17:18:57 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/27 12:11:32 by gvolibea         ###   ########.fr       */
+/*   Created: 2022/03/27 13:28:09 by gvolibea          #+#    #+#             */
+/*   Updated: 2022/03/27 13:44:23 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE3D_H
 # define CUBE3D_H
 
-# include "./parser/includes/cub3d.h"
+# include "./parser/Includes/cub3d.h"
 # include "./mlx/mlx.h"
 # include <math.h>
 
@@ -85,7 +85,6 @@ typedef struct s_all
 	t_plr		*player;
 	t_text		*text;
 	int			*map;
-	void		*mlx_ptr_main;
 }	t_all;
 
 //init

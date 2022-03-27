@@ -6,11 +6,11 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:22:39 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/27 12:06:41 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 13:42:52 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../Includes/cub3d.h"
 
 void	convert_one_dimension_map(t_data *s)
 {
@@ -20,7 +20,6 @@ void	convert_one_dimension_map(t_data *s)
 
 	i = -1;
 	x = -1;
-
 	s->map_str = ft_calloc(s->t.map_width * s->t.lines_cnt + 1, sizeof(char));
 	if (!s->map_str)
 		ft_exit(strerror(errno), 1);
@@ -33,7 +32,6 @@ void	convert_one_dimension_map(t_data *s)
 			s->map_str[++i] = ' ';
 		free(s->map[x]);
 	}
-	printf("SMAP END HERE %p\n",s->map[x]);
 	if (!s->map[x])
 		s->map_str[++i] = '\0';
 	free(s->map);
@@ -86,7 +84,6 @@ static int	check_maps_error(const char *line, t_data *s)
 		s->map = (char **)ft_calloc(2, sizeof(char *));
 		if (!s->map)
 			ft_exit(strerror(errno), 1);
-		printf("s->map add is %p\n",s->map);
 	}
 	if (!line[0])
 		return (-1);
@@ -116,14 +113,11 @@ void	init_map(char *line, t_data *s)
 		s->t.map_width = width;
 	s->map[s->t.lines_cnt++] = ft_strdup(line);
 	s->t.mass = s->map;
-	printf(" 11s itself %p, t itself %p and s->t.lines_ctn %d\n",s->map,s->t.mass,s->t.lines_cnt + 1);
 	s->map = (char **)ft_calloc(s->t.lines_cnt + 1, sizeof(char *));
-	printf("s map aftter CALLOC %p\n",s->map);
 	if (!s->map)
 		ft_exit(strerror(errno), 1);
 	i = -1;
 	while (++i < s->t.lines_cnt)
 		s->map[i] = s->t.mass[i];
-	printf("s mass add i %p, t map add i %p\n, s itself %p, t itself %p\n",s->map[i],s->t.mass[i],s->map,s->t.mass);
 	free(s->t.mass);
 }

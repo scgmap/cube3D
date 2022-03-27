@@ -6,11 +6,11 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:21:58 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/27 12:07:02 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 13:44:11 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../Includes/cub3d.h"
 
 int	get_correctly_maps_fd(int ac, char *av[])
 {
@@ -67,15 +67,10 @@ void	parsing_start(t_data *s, int ac, char *av[])
 
 	ft_bzero(s, sizeof(t_data));
 	fd = get_correctly_maps_fd(ac, av);
-	printf("___p1___");
 	init_file_content(fd, s);
-	printf("___p2___");
 	checking_boundary_symbols(s, '0');
-	printf("___p3___");
 	check_player(s);
-	printf("___p4___");
 	convert_one_dimension_map(s);
-	printf("___p5___");
 }
 
 void	free_after_parsing(t_data *s)
