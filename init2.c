@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:09 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 22:13:41 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 12:28:00 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_main_struct(t_all *all, t_data *parse_data)
 	 ////
 
 }
-
+/*
 int	*get_map(t_data *parse_data)
 {
 	(void)parse_data;
@@ -54,7 +54,7 @@ int	*get_map(t_data *parse_data)
 	}
 	return (out);
 }
-/*
+*/
 int	*get_map(t_data *parse_data)
 {
 	int	*out;
@@ -70,4 +70,4 @@ int	*get_map(t_data *parse_data)
 			out[i] = 1;
 	}
 	return (out);
-}*/
+}
