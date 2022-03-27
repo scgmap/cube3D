@@ -6,11 +6,11 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:22:47 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/23 15:22:48 by feschall         ###   ########.fr       */
+/*   Updated: 2022/03/27 12:06:44 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 static int	check_file(const char *line, const char *ext)
 {

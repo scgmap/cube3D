@@ -6,14 +6,14 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 17:18:57 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 21:16:19 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 12:11:32 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE3D_H
 # define CUBE3D_H
 
-# include "./parser/Includes/cub3d.h"
+# include "./parser/includes/cub3d.h"
 # include "./mlx/mlx.h"
 # include <math.h>
 

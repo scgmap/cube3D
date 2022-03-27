@@ -6,11 +6,11 @@
 /*   By: feschall <feschall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:21:58 by feschall          #+#    #+#             */
-/*   Updated: 2022/03/26 20:22:19 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 12:07:02 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 int	get_correctly_maps_fd(int ac, char *av[])
 {
