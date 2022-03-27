@@ -6,7 +6,7 @@
 /*   By: gvolibea <gvolibea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 14:39:09 by gvolibea          #+#    #+#             */
-/*   Updated: 2022/03/26 14:46:05 by gvolibea         ###   ########.fr       */
+/*   Updated: 2022/03/27 15:23:47 by gvolibea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ void	init_main_struct(t_all *all, t_data *parse_data)
 	ray = malloc(sizeof(t_ray));
 	if (data == NULL || player == NULL || ray == NULL)
 		exit_failure(NULL);
+	all->map = get_map(parse_data);
+	free(parse_data->map_str);
 	init_data(data, player, parse_data);
 	all->ray = ray;
 	all->data = data;
 	all->player = player;
-	all->map = get_map(parse_data);
 	all->text = make_textures(all, parse_data);
 }
 
